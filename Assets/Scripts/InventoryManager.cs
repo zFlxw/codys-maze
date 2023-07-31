@@ -35,15 +35,16 @@ namespace Assets
 
         public void UseItemInSlot(int slotIndex)
         {
-            Debug.Log("Test");
             Slot slot = GetSlotByIndex(slotIndex);
             if (slot.Item == null)
             {
                 return;
             }
 
-            slot.Item.UseItem(GameManager.Instance.Player);
-            slot.ClearSlot();
+            if (slot.Item.UseItem(GameManager.Instance.Player))
+            {
+                slot.ClearSlot();
+            }
         }
 
         public bool AddItem(ItemType itemType)

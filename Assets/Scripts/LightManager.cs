@@ -6,56 +6,31 @@ public class LightManager : MonoBehaviour
 {
     [Header("Settings")]
     [Header("Intensity")]
-    [SerializeField]
-    private float sceneLightIntensity;
-
-    [SerializeField]
-    private float lanternIntensity;
-
-    [SerializeField]
-    private float playerLightIntensity;
+    [SerializeField] private float sceneLightIntensity;
+    [SerializeField] private float lanternIntensity;
+    [SerializeField] private float playerLightIntensity;
 
     [Header("Radius")]
-    [SerializeField]
-    private float defaultRadius;
-
-    [SerializeField]
-    private float lanternRadius;
-
+    [SerializeField] private float defaultRadius;
+    [SerializeField] private float lanternRadius;
 
     [Header("Time")]
-    [SerializeField]
-    private float sceneLoadTime = 2f;
-
-    [SerializeField]
-    private float lanternActivationTime = 1.5f;
-
-    [SerializeField]
-    private float playerLightActivationTime = 0.5f;
-
-    [SerializeField]
-    private float flashlightActivationTime = 0.5f;
+    [SerializeField] private float lanternActivationTime = 1.5f;
+    [SerializeField] private float playerLightActivationTime = 0.5f;
+    [SerializeField] private float flashlightActivationTime = 0.5f;
 
     [Header("Reference")]
-    [SerializeField]
-    private Light2D sceneLight;
-
-    [SerializeField]
-    private Light2D lantern;
-
-    [SerializeField]
-    private Light2D playerLight;
+    [SerializeField] private Light2D sceneLight;
+    [SerializeField] private Light2D lantern;
+    [SerializeField] private Light2D playerLight;
 
     [Space(10)]
-    [SerializeField]
-    private SpriteRenderer lanternOverlay;
-
-    [SerializeField]
-    private SpriteRenderer playerLightOverlay;
+    [SerializeField] private SpriteRenderer lanternOverlay;
+    [SerializeField] private SpriteRenderer playerLightOverlay;
 
     private void Start()
     {
-        sceneLight.intensity = 1.0f;
+        sceneLight.intensity = sceneLightIntensity;
         lantern.intensity = 0.0f;
 
         playerLight.intensity = 0.0f;
@@ -63,20 +38,18 @@ public class LightManager : MonoBehaviour
 
         DOTween
             .Sequence()
-            .Append(DOTween.To(() => sceneLight.intensity, x => sceneLight.intensity = x, sceneLightIntensity, sceneLoadTime))
+            .Append(DOTween.To(() => lantern.intensity, x => lantern.intensity = x, lanternIntensity, lanternActivationTime));
+
+        DOTween
+            .Sequence()
+            .Append(DOTween.To(() => lantern.pointLightOuterRadius, x => lantern.pointLightOuterRadius = x, lanternRadius, lanternActivationTime));
+
+        DOTween
+            .Sequence()
+            .Append(DOTween.To(() => lanternOverlay.color.a, x => lanternOverlay.color = new Color(0, 0, 0, x), 0.0f, lanternActivationTime))
             .OnComplete(() =>
             {
-                DOTween
-                    .Sequence()
-                    .Append(DOTween.To(() => lantern.intensity, x => lantern.intensity = x, lanternIntensity, lanternActivationTime));
-
-                DOTween
-                    .Sequence()
-                    .Append(DOTween.To(() => lantern.pointLightOuterRadius, x => lantern.pointLightOuterRadius = x, lanternRadius, lanternActivationTime));
-
-                DOTween
-                    .Sequence()
-                    .Append(DOTween.To(() => lanternOverlay.color.a, x => lanternOverlay.color = new Color(0, 0, 0, x), 0.0f, lanternActivationTime));
+                GameManager.Instance.CanvasManager.FadeInHUD();
             });
     }
 
@@ -122,7 +95,7 @@ public class LightManager : MonoBehaviour
 
         DOTween
             .Sequence()
-            .Append(DOTween.To(() => playerLightOverlay.color.a, x => playerLightOverlay.color = new Color(255 / 2, 255 / 2, 255/ 2, x), 255.0f, playerLightActivationTime));
+            .Append(DOTween.To(() => playerLightOverlay.color.a, x => playerLightOverlay.color = new Color(255 / 2, 255 / 2, 255 / 2, x), 255.0f, playerLightActivationTime));
     }
 
     public void ActivateFlashlight(float radius)

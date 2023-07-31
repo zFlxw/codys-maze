@@ -26,13 +26,19 @@ public class Item : MonoBehaviour
         }
 
         player.InventoryManager.AddItem(itemType);
+        GameManager.Instance.SfxAudioSource.pitch = Random.Range(0.95f, 1.15f);
         GameManager.Instance.SfxAudioSource.PlayOneShot(pickupSounds[Random.Range(0, pickupSounds.Length)], 0.25f);
 
         Destroy(this.gameObject);
     }
 
-    public void UseItem(Player player)
+    public bool UseItem(Player player)
     {
+        if (player.InSpawnArea)
+        {
+            return false;
+        }
+        GameManager.Instance.SfxAudioSource.pitch = Random.Range(0.95f, 1.15f);
         GameManager.Instance.SfxAudioSource.PlayOneShot(useSounds[Random.Range(0, useSounds.Length)], 0.25f);
         switch (itemType)
         {
@@ -65,5 +71,7 @@ public class Item : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+
+        return true;
     }
 }

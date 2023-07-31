@@ -99,17 +99,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickupSounds:
-  - {fileID: 8300000, guid: 63e5c636bfe348042ba1f7dc6159df7d, type: 3}
-  - {fileID: 8300000, guid: 52c0402da7a0e544c93bc6efd44fe5e5, type: 3}
-  - {fileID: 8300000, guid: 6f50bb4d73b2ca347a9a454a2129d566, type: 3}
-  - {fileID: 8300000, guid: bddf28c869b58a44bacfa786f63a3166, type: 3}
-  - {fileID: 8300000, guid: ad699fe9a3bfcee4aa2c34122f9bd2bb, type: 3}
+  - {fileID: 8300000, guid: 35bd344ca303a194a88ba4ae4cbf337a, type: 3}
   useSounds:
-  - {fileID: 8300000, guid: 953590312dbdc8a4a941357ef58b95b1, type: 3}
-  - {fileID: 8300000, guid: ec87d2611a58be84f89d385495b3949b, type: 3}
-  - {fileID: 8300000, guid: 0650004322409e0418033b2265400a50, type: 3}
-  - {fileID: 8300000, guid: 93024a604be2fd443a2c018228910fb6, type: 3}
-  - {fileID: 8300000, guid: dd6bb8262b36bd245b7460cbfed53f67, type: 3}
+  - {fileID: 8300000, guid: c1004785f7b5f084880fd83b000ec343, type: 3}
   value: 5.5
   itemType: 35
   pickable: 1

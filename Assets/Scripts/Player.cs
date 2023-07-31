@@ -35,6 +35,7 @@ public class Player : MonoBehaviour
     public InventoryManager InventoryManager { get; private set; }
 
     public bool DisableMovement { get; set; } = false;
+    public bool InSpawnArea { get; private set; } = true;
 
     private void Awake()
     {
@@ -44,11 +45,12 @@ public class Player : MonoBehaviour
         InventoryManager = GetComponent<InventoryManager>();
 
         batteryTimer.OnTimerStop += HandleBatteryTimerStop;
+        transform.position = spawnLocation.position;
     }
 
     private void Start()
     {
-        transform.position = spawnLocation.position;
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -69,6 +71,7 @@ public class Player : MonoBehaviour
         }
         else if (collision.CompareTag("SpawnArea"))
         {
+            InSpawnArea = true;
             GameManager.Instance.LightManager.DeactivatePlayerLight();
             if (batteryTimer.IsRunning)
             {
@@ -81,6 +84,7 @@ public class Player : MonoBehaviour
     {
         if (collision.CompareTag("SpawnArea"))
         {
+            InSpawnArea = false;
             GameManager.Instance.LightManager.ActivatePlayerLight();
             if (bypassBatteryTimer)
             {

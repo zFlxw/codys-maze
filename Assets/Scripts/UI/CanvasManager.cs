@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using DG.Tweening;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -17,24 +18,40 @@ public class CanvasManager : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private Image[] hudElements;
 
     private List<Timer> _startedTimers = new List<Timer>();
 
     private void Start()
     {
+        foreach (Image hudElement in hudElements) {
+            hudElement.color = new Color(255.0f, 255.0f, 255.0f, 255.0f);
+        }
+
         musicAudioSource.enabled = true;
         musicAudioSource.Play();
         musicSlider.value = musicAudioSource.volume;
-        musicSliderLabel.text = $"MUSIC: {string.Format("{0:0.0}", musicSlider.value * 100)}%";
+        musicSliderLabel.text = $"AMBIENT: {string.Format("{0:0.0}", musicSlider.value * 1000)}%";
 
         sfxAudioSource.enabled = true;
         sfxSlider.value = sfxAudioSource.volume;
-        sfxSliderLabel.text = $"SFX: {string.Format("{0:0.0}", sfxSlider.value * 100)}%";
+        sfxSliderLabel.text = $"SFX: {string.Format("{0:0.0}", sfxSlider.value * 1000)}%";
 
         pauseMenu.SetActive(false);
 
         musicSlider.onValueChanged.AddListener(OnMusicSliderChange);
         sfxSlider.onValueChanged.AddListener(OnSfxSliderChange);
+    }
+
+    public void FadeInHUD()
+    {
+        foreach (Image hudElement in hudElements)
+        {
+            DOTween
+            .Sequence()
+            .Append(DOTween.To(() => hudElement.fillAmount, x => hudElement.fillAmount = x, 1.0f, 2.0f));
+        }
+        
     }
 
     public void ShowPauseMenu(InputAction.CallbackContext _)
@@ -77,12 +94,12 @@ public class CanvasManager : MonoBehaviour
     private void OnMusicSliderChange(float value)
     {
         musicAudioSource.volume = value;
-        musicSliderLabel.text = $"MUSIC: {string.Format("{0:0.0}", value * 100)}%";
+        musicSliderLabel.text = $"AMBIENT: {string.Format("{0:0.0}", value * 1000)}%";
     }
 
     private void OnSfxSliderChange(float value)
     {
         sfxAudioSource.volume = value;
-        sfxSliderLabel.text = $"SFX: {string.Format("{0:0.0}", value * 100)}%";
+        sfxSliderLabel.text = $"SFX: {string.Format("{0:0.0}", value * 1000)}%";
     }
 }
