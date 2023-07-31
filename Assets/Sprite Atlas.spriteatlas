@@ -1,0 +1,96 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Sprite Atlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 0
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: ae533268583e73344944e544f371aae2, type: 3}
+    - {fileID: 2800000, guid: f305b0da48ce2fd48b57a9d3e1619493, type: 3}
+    - {fileID: 2800000, guid: 8fd982f7c6d674b4e8ae8e699bc3597a, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 8fd982f7c6d674b4e8ae8e699bc3597a, type: 3}
+  - {fileID: 1851739626, guid: ae533268583e73344944e544f371aae2, type: 3}
+  - {fileID: -1419685541, guid: ae533268583e73344944e544f371aae2, type: 3}
+  - {fileID: 456814100, guid: ae533268583e73344944e544f371aae2, type: 3}
+  - {fileID: 305740480, guid: ae533268583e73344944e544f371aae2, type: 3}
+  - {fileID: 784488458, guid: ae533268583e73344944e544f371aae2, type: 3}
+  - {fileID: 816911782, guid: ae533268583e73344944e544f371aae2, type: 3}
+  - {fileID: 1641305945, guid: ae533268583e73344944e544f371aae2, type: 3}
+  - {fileID: 935023439, guid: ae533268583e73344944e544f371aae2, type: 3}
+  - {fileID: 1578143512, guid: ae533268583e73344944e544f371aae2, type: 3}
+  - {fileID: -231472318, guid: ae533268583e73344944e544f371aae2, type: 3}
+  - {fileID: -650602880, guid: ae533268583e73344944e544f371aae2, type: 3}
+  - {fileID: -114254398, guid: ae533268583e73344944e544f371aae2, type: 3}
+  - {fileID: -1256621312, guid: ae533268583e73344944e544f371aae2, type: 3}
+  - {fileID: -1516883848, guid: ae533268583e73344944e544f371aae2, type: 3}
+  - {fileID: 237826150, guid: ae533268583e73344944e544f371aae2, type: 3}
+  - {fileID: -31709513, guid: ae533268583e73344944e544f371aae2, type: 3}
+  - {fileID: -689446507, guid: ae533268583e73344944e544f371aae2, type: 3}
+  - {fileID: 21300000, guid: f305b0da48ce2fd48b57a9d3e1619493, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - WAYPOINT
+  - HEDGES 1_5
+  - HEDGES 1_4
+  - HEDGES 1_7
+  - HEDGES 1_6
+  - HEDGES 1_1
+  - HEDGES 1_0
+  - HEDGES 1_3
+  - HEDGES 1_2
+  - HEDGES 1_14
+  - HEDGES 1_15
+  - HEDGES 1_16
+  - HEDGES 1_9
+  - HEDGES 1_10
+  - HEDGES 1_8
+  - HEDGES 1_11
+  - HEDGES 1_12
+  - HEDGES 1_13
+  - ITEM_SPAWN
+  m_RenderDataMap: {}
+  m_Tag: Sprite Atlas
+  m_IsVariant: 0

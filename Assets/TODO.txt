@@ -1,0 +1,6 @@
+game loop:
+-> Finish Level
+
+items:
+-> speed item
+-> 
